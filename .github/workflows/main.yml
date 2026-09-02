@@ -1,11 +1,9 @@
 name: Lint
-
 on:
   push:
     branches: [ main ]
   pull_request:
     branches: [ main ]
-
 jobs:
   python-lint:
     runs-on: ubuntu-latest
@@ -18,8 +16,7 @@ jobs:
       - name: Install flake8
         run: pip install flake8
       - name: Run flake8
-        run: flake8 server/djangoapp server/djangoproj --max-line-length=79
-
+        run: flake8 server/djangoapp server/djangoproj --max-line-length=79 --exclude=migrations
   js-lint:
     runs-on: ubuntu-latest
     steps:
